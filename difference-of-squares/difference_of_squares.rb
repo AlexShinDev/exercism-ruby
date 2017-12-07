@@ -3,15 +3,16 @@ module BookKeeping
 end
 class Squares
   def initialize(input_options)
-    @num = input_options
+    @num = (1..input_options)
   end
 
   def square_of_sum
-    (1..@num).reduce(:+)**2
+    @num.reduce(:+)**2
   end
   
   def sum_of_squares
-    (1..@num).map {|num| num**2}.reduce(:+)
+    @num.reduce { |sum, num| sum + (num**2) }
+
   end
   
   def difference
